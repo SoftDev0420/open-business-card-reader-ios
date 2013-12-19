@@ -1,3 +1,6 @@
+
+![image](http://fullcontact-static.s3.amazonaws.com/images/apps/cardreader/open-bc-reader.png)
+
 Open Business Card Reader for iOS
 ================
 

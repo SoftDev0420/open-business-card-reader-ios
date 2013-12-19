@@ -204,6 +204,8 @@
 	} failure:^(FCResponse *response, NSError *error) {
 		NSLog(@"Failure submitting Card:  Error: %@", error.localizedDescription);
 		[self removeWaitActivityIndicator];
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alertView show];
 	}];
 
 }

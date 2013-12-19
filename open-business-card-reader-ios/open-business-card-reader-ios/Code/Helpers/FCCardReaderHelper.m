@@ -78,7 +78,7 @@ static FCAPI *api;
 	NSMutableDictionary *mutableParameters =
 	(parameters) ? [NSMutableDictionary dictionaryWithDictionary:parameters] : [NSMutableDictionary new];
 	
-	[mutableParameters setObject:@"medium" forKey:@"verified"];
+	[mutableParameters setObject:@"low" forKey:@"verified"];
 	[mutableParameters setObject:@"titlecase" forKey:@"casing"];
 	
 	[api uploadCard:UIImageJPEGRepresentation(frontImage, 0.5)

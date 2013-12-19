@@ -58,228 +58,242 @@
 	return self;
 }
 
-+ (FCContact *)instanceFromDictionary:(NSDictionary *)aDictionary {
-
-	FCContact *instance = [[FCContact alloc] init];
-	[instance setAttributesFromDictionary:aDictionary];
-	return instance;
-
++ (NSArray *)mappingInfo
+{
+	return @[
+			[[FCMappingInfo mappingWithKey:@"accounts"] collectionClass:[FCAccount class]],
+			[[FCMappingInfo mappingWithKey:@"addresses"] collectionClass:[FCAddress class]],
+			[[FCMappingInfo mappingWithKey:@"emails"] collectionClass:[FCEmail class]],
+			[[FCMappingInfo mappingWithKey:@"ims"] collectionClass:[FCIm class]],
+			[[FCMappingInfo mappingWithKey:@"name"] class:[FCName class]],
+			[[FCMappingInfo mappingWithKey:@"organizations"] collectionClass:[FCOrganization class]],
+			[[FCMappingInfo mappingWithKey:@"phoneNumbers"] collectionClass:[FCPhoneNumber class]],
+			[[FCMappingInfo mappingWithKey:@"photos"] collectionClass:[FCPhoto class]],
+			[[FCMappingInfo mappingWithKey:@"urls"] collectionClass:[FCUrl class]]
+	];
 }
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
-
-	if (![aDictionary isKindOfClass:[NSDictionary class]]) {
-		return;
-	}
-
-	[self setValuesForKeysWithDictionary:aDictionary];
-
-}
-
-- (void)setValue:(id)value forKey:(NSString *)key {
-
-	if ([key isEqualToString:@"accounts"]) {
-
-		if ([value isKindOfClass:[NSArray class]]) {
-
-			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
-			for (id valueMember in value) {
-				FCAccount *populatedMember = [FCAccount instanceFromDictionary:valueMember];
-				[myMembers addObject:populatedMember];
-			}
-
-			self.accounts = myMembers;
-
-		}
-
-	} else if ([key isEqualToString:@"addresses"]) {
-
-		if ([value isKindOfClass:[NSArray class]]) {
-
-			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
-			for (id valueMember in value) {
-				FCAddress *populatedMember = [FCAddress instanceFromDictionary:valueMember];
-				[myMembers addObject:populatedMember];
-			}
-
-			self.addresses = myMembers;
-
-		}
-
-	} else if ([key isEqualToString:@"emails"]) {
-
-		if ([value isKindOfClass:[NSArray class]]) {
-
-			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
-			for (id valueMember in value) {
-				FCEmail *populatedMember = [FCEmail instanceFromDictionary:valueMember];
-				[myMembers addObject:populatedMember];
-			}
-
-			self.emails = myMembers;
-
-		}
-
-	} else if ([key isEqualToString:@"ims"]) {
-
-		if ([value isKindOfClass:[NSArray class]]) {
-
-			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
-			for (id valueMember in value) {
-				FCIm *populatedMember = [FCIm instanceFromDictionary:valueMember];
-				[myMembers addObject:populatedMember];
-			}
-
-			self.ims = myMembers;
-
-		}
-
-	} else if ([key isEqualToString:@"name"]) {
-
-		if ([value isKindOfClass:[NSDictionary class]]) {
-			self.name = [FCName instanceFromDictionary:value];
-		}
-
-	} else if ([key isEqualToString:@"organizations"]) {
-
-		if ([value isKindOfClass:[NSArray class]]) {
-
-			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
-			for (id valueMember in value) {
-				FCOrganization *populatedMember = [FCOrganization instanceFromDictionary:valueMember];
-				[myMembers addObject:populatedMember];
-			}
-
-			self.organizations = myMembers;
-
-		}
-
-	} else if ([key isEqualToString:@"phoneNumbers"]) {
-
-		if ([value isKindOfClass:[NSArray class]]) {
-
-			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
-			for (id valueMember in value) {
-				FCPhoneNumber *populatedMember = [FCPhoneNumber instanceFromDictionary:valueMember];
-				[myMembers addObject:populatedMember];
-			}
-
-			self.phoneNumbers = myMembers;
-
-		}
-
-	} else if ([key isEqualToString:@"photos"]) {
-
-		if ([value isKindOfClass:[NSArray class]]) {
-
-			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
-			for (id valueMember in value) {
-				FCPhoto *populatedMember = [FCPhoto instanceFromDictionary:valueMember];
-				[myMembers addObject:populatedMember];
-			}
-
-			self.photos = myMembers;
-
-		}
-
-	} else if ([key isEqualToString:@"urls"]) {
-
-		if ([value isKindOfClass:[NSArray class]]) {
-
-			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
-			for (id valueMember in value) {
-				FCUrl *populatedMember = [FCUrl instanceFromDictionary:valueMember];
-				[myMembers addObject:populatedMember];
-			}
-
-			self.urls = myMembers;
-
-		}
-
-	} else {
-		[super setValue:value forKey:key];
-	}
-
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-	return;
-}
-
-- (NSDictionary *)dictionaryRepresentation {
-
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-
-	if (self.accounts) {
-		NSMutableArray *tempAccounts = [[NSMutableArray alloc] init];
-		for (FCAccount *a in self.accounts) {
-			[tempAccounts addObject:[a dictionaryRepresentation]];
-		}
-		[dictionary setObject:tempAccounts forKey:@"accounts"];
-	}
-
-	if (self.addresses) {
-		NSMutableArray *tempAddresses = [[NSMutableArray alloc] init];
-		for (FCAddress *a in self.addresses) {
-			[tempAddresses addObject:[a dictionaryRepresentation]];
-		}
-		[dictionary setObject:tempAddresses forKey:@"addresses"];
-	}
-
-	if (self.emails) {
-		NSMutableArray *tempEmails = [[NSMutableArray alloc] init];
-		for (FCEmail *e in self.emails) {
-			[tempEmails addObject:[e dictionaryRepresentation]];
-		}
-		[dictionary setObject:tempEmails forKey:@"emails"];
-	}
-
-	if (self.ims) {
-		NSMutableArray *tempIms = [[NSMutableArray alloc] init];
-		for (FCIm *im in self.ims) {
-			[tempIms addObject:[im dictionaryRepresentation]];
-		}
-		[dictionary setObject:tempIms forKey:@"ims"];
-	}
-
-	if (self.name) {
-		[dictionary setObject:[self.name dictionaryRepresentation] forKey:@"name"];
-	}
-
-	if (self.organizations) {
-		NSMutableArray *tempOrganizations = [[NSMutableArray alloc] init];
-		for (FCOrganization *org in self.organizations) {
-			[tempOrganizations addObject:[org dictionaryRepresentation]];
-		}
-		[dictionary setObject:tempOrganizations forKey:@"organizations"];
-	}
-
-	if (self.phoneNumbers) {
-		NSMutableArray *tempPhones = [[NSMutableArray alloc] init];
-		for (FCPhoneNumber *p in self.phoneNumbers) {
-			[tempPhones addObject:[p dictionaryRepresentation]];
-		}
-		[dictionary setObject:tempPhones forKey:@"phoneNumbers"];
-	}
-
-	if (self.photos) {
-		NSMutableArray *tempPhotos = [[NSMutableArray alloc] init];
-		for (FCPhoto *photo in self.photos) {
-			[tempPhotos addObject:[photo dictionaryRepresentation]];
-		}
-		[dictionary setObject:tempPhotos forKey:@"photos"];
-	}
-
-	if (self.urls) {
-		NSMutableArray *tempUrls = [[NSMutableArray alloc] init];
-		for (FCUrl *u in self.urls) {
-			[tempUrls addObject:[u dictionaryRepresentation]];
-		}
-		[dictionary setObject:tempUrls forKey:@"urls"];
-	}
-
-	return dictionary;
-
-}
+//+ (FCContact *)instanceFromDictionary:(NSDictionary *)aDictionary {
+//
+//	FCContact *instance = [[FCContact alloc] init];
+//	[instance setAttributesFromDictionary:aDictionary];
+//	return instance;
+//
+//}
+//
+//- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
+//
+//	if (![aDictionary isKindOfClass:[NSDictionary class]]) {
+//		return;
+//	}
+//
+//	[self setValuesForKeysWithDictionary:aDictionary];
+//
+//}
+//
+//- (void)setValue:(id)value forKey:(NSString *)key {
+//
+//	if ([key isEqualToString:@"accounts"]) {
+//
+//		if ([value isKindOfClass:[NSArray class]]) {
+//
+//			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+//			for (id valueMember in value) {
+//				FCAccount *populatedMember = [FCAccount instanceFromDictionary:valueMember];
+//				[myMembers addObject:populatedMember];
+//			}
+//
+//			self.accounts = myMembers;
+//
+//		}
+//
+//	} else if ([key isEqualToString:@"addresses"]) {
+//
+//		if ([value isKindOfClass:[NSArray class]]) {
+//
+//			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+//			for (id valueMember in value) {
+//				FCAddress *populatedMember = [FCAddress instanceFromDictionary:valueMember];
+//				[myMembers addObject:populatedMember];
+//			}
+//
+//			self.addresses = myMembers;
+//
+//		}
+//
+//	} else if ([key isEqualToString:@"emails"]) {
+//
+//		if ([value isKindOfClass:[NSArray class]]) {
+//
+//			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+//			for (id valueMember in value) {
+//				FCEmail *populatedMember = [FCEmail instanceFromDictionary:valueMember];
+//				[myMembers addObject:populatedMember];
+//			}
+//
+//			self.emails = myMembers;
+//
+//		}
+//
+//	} else if ([key isEqualToString:@"ims"]) {
+//
+//		if ([value isKindOfClass:[NSArray class]]) {
+//
+//			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+//			for (id valueMember in value) {
+//				FCIm *populatedMember = [FCIm instanceFromDictionary:valueMember];
+//				[myMembers addObject:populatedMember];
+//			}
+//
+//			self.ims = myMembers;
+//
+//		}
+//
+//	} else if ([key isEqualToString:@"name"]) {
+//
+//		if ([value isKindOfClass:[NSDictionary class]]) {
+//			self.name = [FCName objectFromJSON:value];
+//		}
+//
+//	} else if ([key isEqualToString:@"organizations"]) {
+//
+//		if ([value isKindOfClass:[NSArray class]]) {
+//
+//			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+//			for (id valueMember in value) {
+//				FCOrganization *populatedMember = [FCOrganization instanceFromDictionary:valueMember];
+//				[myMembers addObject:populatedMember];
+//			}
+//
+//			self.organizations = myMembers;
+//
+//		}
+//
+//	} else if ([key isEqualToString:@"phoneNumbers"]) {
+//
+//		if ([value isKindOfClass:[NSArray class]]) {
+//
+//			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+//			for (id valueMember in value) {
+//				FCPhoneNumber *populatedMember = [FCPhoneNumber instanceFromDictionary:valueMember];
+//				[myMembers addObject:populatedMember];
+//			}
+//
+//			self.phoneNumbers = myMembers;
+//
+//		}
+//
+//	} else if ([key isEqualToString:@"photos"]) {
+//
+//		if ([value isKindOfClass:[NSArray class]]) {
+//
+//			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+//			for (id valueMember in value) {
+//				FCPhoto *populatedMember = [FCPhoto instanceFromDictionary:valueMember];
+//				[myMembers addObject:populatedMember];
+//			}
+//
+//			self.photos = myMembers;
+//
+//		}
+//
+//	} else if ([key isEqualToString:@"urls"]) {
+//
+//		if ([value isKindOfClass:[NSArray class]]) {
+//
+//			NSMutableArray *myMembers = [NSMutableArray arrayWithCapacity:[value count]];
+//			for (id valueMember in value) {
+//				FCUrl *populatedMember = [FCUrl instanceFromDictionary:valueMember];
+//				[myMembers addObject:populatedMember];
+//			}
+//
+//			self.urls = myMembers;
+//
+//		}
+//
+//	} else {
+//		[super setValue:value forKey:key];
+//	}
+//
+//}
+//
+//- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+//	return;
+//}
+//
+//- (NSDictionary *)dictionaryRepresentation {
+//
+//	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+//
+//	if (self.accounts) {
+//		NSMutableArray *tempAccounts = [[NSMutableArray alloc] init];
+//		for (FCAccount *a in self.accounts) {
+//			[tempAccounts addObject:[a dictionaryRepresentation]];
+//		}
+//		[dictionary setObject:tempAccounts forKey:@"accounts"];
+//	}
+//
+//	if (self.addresses) {
+//		NSMutableArray *tempAddresses = [[NSMutableArray alloc] init];
+//		for (FCAddress *a in self.addresses) {
+//			[tempAddresses addObject:[a dictionaryRepresentation]];
+//		}
+//		[dictionary setObject:tempAddresses forKey:@"addresses"];
+//	}
+//
+//	if (self.emails) {
+//		NSMutableArray *tempEmails = [[NSMutableArray alloc] init];
+//		for (FCEmail *e in self.emails) {
+//			[tempEmails addObject:[e dictionaryRepresentation]];
+//		}
+//		[dictionary setObject:tempEmails forKey:@"emails"];
+//	}
+//
+//	if (self.ims) {
+//		NSMutableArray *tempIms = [[NSMutableArray alloc] init];
+//		for (FCIm *im in self.ims) {
+//			[tempIms addObject:[im dictionaryRepresentation]];
+//		}
+//		[dictionary setObject:tempIms forKey:@"ims"];
+//	}
+//
+//	if (self.name) {
+//		[dictionary setObject:[self.name JSONRepresentation] forKey:@"name"];
+//	}
+//
+//	if (self.organizations) {
+//		NSMutableArray *tempOrganizations = [[NSMutableArray alloc] init];
+//		for (FCOrganization *org in self.organizations) {
+//			[tempOrganizations addObject:[org dictionaryRepresentation]];
+//		}
+//		[dictionary setObject:tempOrganizations forKey:@"organizations"];
+//	}
+//
+//	if (self.phoneNumbers) {
+//		NSMutableArray *tempPhones = [[NSMutableArray alloc] init];
+//		for (FCPhoneNumber *p in self.phoneNumbers) {
+//			[tempPhones addObject:[p dictionaryRepresentation]];
+//		}
+//		[dictionary setObject:tempPhones forKey:@"phoneNumbers"];
+//	}
+//
+//	if (self.photos) {
+//		NSMutableArray *tempPhotos = [[NSMutableArray alloc] init];
+//		for (FCPhoto *photo in self.photos) {
+//			[tempPhotos addObject:[photo dictionaryRepresentation]];
+//		}
+//		[dictionary setObject:tempPhotos forKey:@"photos"];
+//	}
+//
+//	if (self.urls) {
+//		NSMutableArray *tempUrls = [[NSMutableArray alloc] init];
+//		for (FCUrl *u in self.urls) {
+//			[tempUrls addObject:[u dictionaryRepresentation]];
+//		}
+//		[dictionary setObject:tempUrls forKey:@"urls"];
+//	}
+//
+//	return dictionary;
+//
+//}
 
 @end

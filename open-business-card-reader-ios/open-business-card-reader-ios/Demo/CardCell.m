@@ -86,7 +86,7 @@
 {
 
 	NSAssert(contact, @"contact cannot be nil");
-	FCContact *c = [FCContact instanceFromDictionary:contact];
+	FCContact *c = [FCContact objectFromJSON:contact];
 
 	NSMutableArray *components = [NSMutableArray new];
 	NSMutableArray *processedName = [NSMutableArray new];

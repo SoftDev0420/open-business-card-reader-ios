@@ -18,16 +18,11 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCPhoneNumber : NSObject <NSCoding>
+@interface FCPhoneNumber : FCObject <NSCoding>
 
 @property(nonatomic) NSString *type;
 @property(nonatomic) NSString *value;
-
-+ (FCPhoneNumber *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

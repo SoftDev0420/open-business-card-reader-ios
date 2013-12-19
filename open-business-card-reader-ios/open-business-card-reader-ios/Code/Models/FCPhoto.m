@@ -35,45 +35,13 @@
 	}
 	return self;
 }
-
-+ (FCPhoto *)instanceFromDictionary:(NSDictionary *)aDictionary {
-
-	FCPhoto *instance = [[FCPhoto alloc] init];
-	[instance setAttributesFromDictionary:aDictionary];
-	return instance;
-
-}
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
-
-	if (![aDictionary isKindOfClass:[NSDictionary class]]) {
-		return;
-	}
-
-	[self setValuesForKeysWithDictionary:aDictionary];
-
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-	return;
-}
-
-- (NSDictionary *)dictionaryRepresentation {
-
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-
-	[dictionary setObject:[NSNumber numberWithBool:self.primary] forKey:@"primary"];
-
-	if (self.type) {
-		[dictionary setObject:self.type forKey:@"type"];
-	}
-
-	if (self.value) {
-		[dictionary setObject:self.value forKey:@"value"];
-	}
-
-	return dictionary;
-
++ (NSArray *)mappingInfo
+{
+	return @[
+			[FCMappingInfo mappingWithKey:@"primary"],
+			[FCMappingInfo mappingWithKey:@"type"],
+			[FCMappingInfo mappingWithKey:@"value"]
+	];
 }
 
 @end

@@ -18,17 +18,12 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCName : NSObject <NSCoding>
+@interface FCName : FCObject <NSCoding>
 
 @property(nonatomic) NSString *familyName;
 @property(nonatomic) NSString *givenName;
 @property(nonatomic) NSString *middleName;
-
-+ (FCName *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

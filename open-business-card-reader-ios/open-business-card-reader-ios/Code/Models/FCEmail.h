@@ -18,16 +18,12 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCEmail : NSObject <NSCoding>
+@interface FCEmail : FCObject <NSCoding>
 
 @property(nonatomic) NSString *type;
 @property(nonatomic) NSString *value;
 
-+ (FCEmail *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

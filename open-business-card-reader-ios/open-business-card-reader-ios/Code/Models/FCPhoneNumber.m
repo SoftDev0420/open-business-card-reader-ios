@@ -34,42 +34,12 @@
 	return self;
 }
 
-+ (FCPhoneNumber *)instanceFromDictionary:(NSDictionary *)aDictionary {
-
-	FCPhoneNumber *instance = [[FCPhoneNumber alloc] init];
-	[instance setAttributesFromDictionary:aDictionary];
-	return instance;
-
-}
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
-
-	if (![aDictionary isKindOfClass:[NSDictionary class]]) {
-		return;
-	}
-
-	[self setValuesForKeysWithDictionary:aDictionary];
-
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-	return;
-}
-
-- (NSDictionary *)dictionaryRepresentation {
-
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-
-	if (self.type) {
-		[dictionary setObject:self.type forKey:@"type"];
-	}
-
-	if (self.value) {
-		[dictionary setObject:self.value forKey:@"value"];
-	}
-
-	return dictionary;
-
++ (NSArray *)mappingInfo
+{
+	return @[
+			[FCMappingInfo mappingWithKey:@"type"],
+			[FCMappingInfo mappingWithKey:@"value"]
+	];
 }
 
 @end

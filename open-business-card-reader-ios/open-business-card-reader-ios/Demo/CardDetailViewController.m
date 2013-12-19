@@ -202,7 +202,7 @@
 		}
 
 	} failure:^(FCResponse *response, NSError *error) {
-		NSLog(@"Failure submitting Card");
+		NSLog(@"Failure submitting Card:  Error: %@", error.localizedDescription);
 		[self removeWaitActivityIndicator];
 	}];
 

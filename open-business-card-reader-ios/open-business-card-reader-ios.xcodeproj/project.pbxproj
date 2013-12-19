@@ -33,6 +33,7 @@
 		C6C2B1271862193000518775 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6C2B1251862193000518775 /* Main_iPhone.storyboard */; };
 		C6C2B1291862195200518775 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2B1281862195200518775 /* MobileCoreServices.framework */; };
 		C6C2B12B1862195900518775 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2B12A1862195900518775 /* SystemConfiguration.framework */; };
+		C6C2B16F186363AF00518775 /* FCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C6C2B16E186363AF00518775 /* FCObject.m */; };
 		C6EF2574186214EE0003A218 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EF2573186214EE0003A218 /* Foundation.framework */; };
 		C6EF2576186214EE0003A218 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EF2575186214EE0003A218 /* CoreGraphics.framework */; };
 		C6EF2578186214EE0003A218 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6EF2577186214EE0003A218 /* UIKit.framework */; };
@@ -113,6 +114,8 @@
 		C6C2B1251862193000518775 /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		C6C2B1281862195200518775 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C6C2B12A1862195900518775 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C6C2B16D186363AF00518775 /* FCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCObject.h; sourceTree = "<group>"; };
+		C6C2B16E186363AF00518775 /* FCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCObject.m; sourceTree = "<group>"; };
 		C6EF2570186214EE0003A218 /* open-business-card-reader-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "open-business-card-reader-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6EF2573186214EE0003A218 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6EF2575186214EE0003A218 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -400,6 +403,8 @@
 		C6EF2616186217270003A218 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C6C2B16D186363AF00518775 /* FCObject.h */,
+				C6C2B16E186363AF00518775 /* FCObject.m */,
 				C6EF2617186217270003A218 /* FCAccount.h */,
 				C6EF2618186217270003A218 /* FCAccount.m */,
 				C6EF2619186217270003A218 /* FCAddress.h */,
@@ -518,6 +523,7 @@
 				C6EF2582186214EE0003A218 /* main.m in Sources */,
 				C6EF2606186216FA0003A218 /* Card.m in Sources */,
 				C6EF2633186217270003A218 /* FCAddress.m in Sources */,
+				C6C2B16F186363AF00518775 /* FCObject.m in Sources */,
 				C6C2B090186218DA00518775 /* AFImageRequestOperation.m in Sources */,
 				C6EF2607186216FA0003A218 /* CardCell.m in Sources */,
 				C6C2B095186218DA00518775 /* AFXMLRequestOperation.m in Sources */,

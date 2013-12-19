@@ -18,17 +18,12 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCOrganization : NSObject <NSCoding>
+@interface FCOrganization : FCObject <NSCoding>
 
 @property(nonatomic) BOOL isPrimary;
 @property(nonatomic) NSString *name;
 @property(nonatomic) NSString *title;
-
-+ (FCOrganization *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

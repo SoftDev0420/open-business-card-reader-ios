@@ -42,58 +42,16 @@
 	return self;
 }
 
-+ (FCAddress *)instanceFromDictionary:(NSDictionary *)aDictionary {
-
-	FCAddress *instance = [[FCAddress alloc] init];
-	[instance setAttributesFromDictionary:aDictionary];
-	return instance;
-
-}
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
-
-	if (![aDictionary isKindOfClass:[NSDictionary class]]) {
-		return;
-	}
-
-	[self setValuesForKeysWithDictionary:aDictionary];
-
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-	return;
-}
-
-- (NSDictionary *)dictionaryRepresentation {
-
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-
-	if (self.country) {
-		[dictionary setObject:self.country forKey:@"country"];
-	}
-
-	if (self.locality) {
-		[dictionary setObject:self.locality forKey:@"locality"];
-	}
-
-	if (self.postalCode) {
-		[dictionary setObject:self.postalCode forKey:@"postalCode"];
-	}
-
-	if (self.region) {
-		[dictionary setObject:self.region forKey:@"region"];
-	}
-
-	if (self.streetAddress) {
-		[dictionary setObject:self.streetAddress forKey:@"streetAddress"];
-	}
-
-	if (self.type) {
-		[dictionary setObject:self.type forKey:@"type"];
-	}
-
-	return dictionary;
-
++ (NSArray *)mappingInfo
+{
+	return @[
+			[FCMappingInfo mappingWithKey:@"country"],
+			[FCMappingInfo mappingWithKey:@"locality"],
+			[FCMappingInfo mappingWithKey:@"postalCode"],
+			[FCMappingInfo mappingWithKey:@"region"],
+			[FCMappingInfo mappingWithKey:@"streetAddress"],
+			[FCMappingInfo mappingWithKey:@"type"]
+	];
 }
 
 @end

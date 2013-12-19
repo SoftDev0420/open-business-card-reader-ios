@@ -18,16 +18,12 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCIm : NSObject <NSCoding>
+@interface FCIm : FCObject <NSCoding>
 
 @property(nonatomic) NSString *type;
 @property(nonatomic) NSString *value;
 
-+ (FCIm *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

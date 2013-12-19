@@ -18,10 +18,11 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
 @class FCName;
 
-@interface FCContact : NSObject <NSCoding>
+@interface FCContact : FCObject <NSCoding>
 
 @property(nonatomic) NSArray *accounts;
 @property(nonatomic) NSArray *addresses;
@@ -33,10 +34,10 @@
 @property(nonatomic) NSArray *photos;
 @property(nonatomic) NSArray *urls;
 
-+ (FCContact *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
+//+ (FCContact *)instanceFromDictionary:(NSDictionary *)aDictionary;
+//
+//- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
+//
+//- (NSDictionary *)dictionaryRepresentation;
 
 @end

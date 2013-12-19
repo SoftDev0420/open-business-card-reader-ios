@@ -36,40 +36,13 @@
 	return self;
 }
 
-+ (FCOrganization *)instanceFromDictionary:(NSDictionary *)aDictionary {
-	FCOrganization *instance = [[FCOrganization alloc] init];
-	[instance setAttributesFromDictionary:aDictionary];
-	return instance;
-}
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
-	if (![aDictionary isKindOfClass:[NSDictionary class]]) {
-		return;
-	}
-	[self setValuesForKeysWithDictionary:aDictionary];
-
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-	return;
-}
-
-- (NSDictionary *)dictionaryRepresentation {
-
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-
-	[dictionary setObject:[NSNumber numberWithBool:self.isPrimary] forKey:@"isPrimary"];
-
-	if (self.name) {
-		[dictionary setObject:self.name forKey:@"name"];
-	}
-
-	if (self.title) {
-		[dictionary setObject:self.title forKey:@"title"];
-	}
-
-	return dictionary;
-
++ (NSArray *)mappingInfo
+{
+	return @[
+			[FCMappingInfo mappingWithKey:@"isPrimary"],
+			[FCMappingInfo mappingWithKey:@"name"],
+			[FCMappingInfo mappingWithKey:@"title"]
+	];
 }
 
 @end

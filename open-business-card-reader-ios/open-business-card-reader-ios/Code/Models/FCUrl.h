@@ -18,16 +18,12 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCUrl : NSObject <NSCoding>
+@interface FCUrl : FCObject <NSCoding>
 
 @property(nonatomic) NSString *type;
 @property(nonatomic) NSString *value;
 
-+ (FCUrl *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

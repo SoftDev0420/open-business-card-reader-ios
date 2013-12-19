@@ -18,17 +18,13 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCPhoto : NSObject <NSCoding>
+@interface FCPhoto : FCObject <NSCoding>
 
 @property(nonatomic) BOOL primary;
 @property(nonatomic) NSString *type;
 @property(nonatomic) NSString *value;
 
-+ (FCPhoto *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

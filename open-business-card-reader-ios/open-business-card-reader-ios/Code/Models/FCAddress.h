@@ -18,8 +18,9 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCAddress : NSObject <NSCoding>
+@interface FCAddress : FCObject <NSCoding>
 
 @property(nonatomic) NSString *country;
 @property(nonatomic) NSString *locality;
@@ -27,11 +28,5 @@
 @property(nonatomic) NSString *region;
 @property(nonatomic) NSString *streetAddress;
 @property(nonatomic) NSString *type;
-
-+ (FCAddress *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

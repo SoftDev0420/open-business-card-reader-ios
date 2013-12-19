@@ -38,50 +38,14 @@
 	return self;
 }
 
-+ (FCAccount *)instanceFromDictionary:(NSDictionary *)aDictionary {
-
-	FCAccount *instance = [[FCAccount alloc] init];
-	[instance setAttributesFromDictionary:aDictionary];
-	return instance;
-
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-	return;
-}
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary {
-
-	if (![aDictionary isKindOfClass:[NSDictionary class]]) {
-		return;
-	}
-
-	[self setValuesForKeysWithDictionary:aDictionary];
-
-}
-
-- (NSDictionary *)dictionaryRepresentation {
-
-	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
-
-	if (self.domain) {
-		[dictionary setObject:self.domain forKey:@"domain"];
-	}
-
-	if (self.urlString) {
-		[dictionary setObject:self.urlString forKey:@"urlString"];
-	}
-
-	if (self.username) {
-		[dictionary setObject:self.username forKey:@"username"];
-	}
-
-	if (self.userId) {
-		[dictionary setObject:self.userId forKey:@"userid"];
-	}
-
-	return dictionary;
-
++ (NSArray *)mappingInfo
+{
+	return @[
+			[FCMappingInfo mappingWithKey:@"domain"],
+			[FCMappingInfo mappingWithKey:@"urlString"],
+			[FCMappingInfo mappingWithKey:@"username"],
+			[FCMappingInfo mappingWithKey:@"userid"]
+	];
 }
 
 @end

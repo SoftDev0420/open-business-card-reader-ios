@@ -18,18 +18,14 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "FCObject.h"
 
-@interface FCAccount : NSObject <NSCoding>
+@interface FCAccount : FCObject <NSCoding>
 
 @property(nonatomic) NSString *domain;
 @property(nonatomic) NSString *urlString;
 @property(nonatomic) NSString *username;
 @property(nonatomic) NSString *userId;
 
-+ (FCAccount *)instanceFromDictionary:(NSDictionary *)aDictionary;
-
-- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-
-- (NSDictionary *)dictionaryRepresentation;
 
 @end

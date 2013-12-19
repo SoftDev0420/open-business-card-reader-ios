@@ -21,21 +21,6 @@
 
 @implementation FCOrganization
 
-- (void)encodeWithCoder:(NSCoder *)encoder {
-	[encoder encodeObject:[NSNumber numberWithBool:self.isPrimary] forKey:@"isPrimary"];
-	[encoder encodeObject:self.name forKey:@"name"];
-	[encoder encodeObject:self.title forKey:@"title"];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-	if ((self = [super init])) {
-		self.isPrimary = [(NSNumber *) [decoder decodeObjectForKey:@"isPrimary"] boolValue];
-		self.name = [decoder decodeObjectForKey:@"name"];
-		self.title = [decoder decodeObjectForKey:@"title"];
-	}
-	return self;
-}
-
 + (NSArray *)mappingInfo
 {
 	return @[

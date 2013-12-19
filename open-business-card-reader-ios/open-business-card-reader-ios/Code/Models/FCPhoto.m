@@ -21,20 +21,6 @@
 
 @implementation FCPhoto
 
-- (void)encodeWithCoder:(NSCoder *)encoder {
-	[encoder encodeObject:[NSNumber numberWithBool:self.primary] forKey:@"primary"];
-	[encoder encodeObject:self.type forKey:@"type"];
-	[encoder encodeObject:self.value forKey:@"value"];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-	if ((self = [super init])) {
-		self.primary = [(NSNumber *) [decoder decodeObjectForKey:@"primary"] boolValue];
-		self.type = [decoder decodeObjectForKey:@"type"];
-		self.value = [decoder decodeObjectForKey:@"value"];
-	}
-	return self;
-}
 + (NSArray *)mappingInfo
 {
 	return @[

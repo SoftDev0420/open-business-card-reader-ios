@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "FCObject.h"
 
-@interface FCOrganization : FCObject <NSCoding>
+@interface FCOrganization : FCObject
 
 @property(nonatomic) BOOL isPrimary;
 @property(nonatomic) NSString *name;

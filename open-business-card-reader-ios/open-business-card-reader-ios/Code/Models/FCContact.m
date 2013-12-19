@@ -31,33 +31,6 @@
 
 @implementation FCContact
 
-- (void)encodeWithCoder:(NSCoder *)encoder {
-	[encoder encodeObject:self.accounts forKey:@"accounts"];
-	[encoder encodeObject:self.addresses forKey:@"addresses"];
-	[encoder encodeObject:self.emails forKey:@"emails"];
-	[encoder encodeObject:self.ims forKey:@"ims"];
-	[encoder encodeObject:self.name forKey:@"name"];
-	[encoder encodeObject:self.organizations forKey:@"organizations"];
-	[encoder encodeObject:self.phoneNumbers forKey:@"phoneNumbers"];
-	[encoder encodeObject:self.photos forKey:@"photos"];
-	[encoder encodeObject:self.urls forKey:@"urls"];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-	if ((self = [super init])) {
-		self.accounts = [decoder decodeObjectForKey:@"accounts"];
-		self.addresses = [decoder decodeObjectForKey:@"addresses"];
-		self.emails = [decoder decodeObjectForKey:@"emails"];
-		self.ims = [decoder decodeObjectForKey:@"ims"];
-		self.name = [decoder decodeObjectForKey:@"name"];
-		self.organizations = [decoder decodeObjectForKey:@"organizations"];
-		self.phoneNumbers = [decoder decodeObjectForKey:@"phoneNumbers"];
-		self.photos = [decoder decodeObjectForKey:@"photos"];
-		self.urls = [decoder decodeObjectForKey:@"urls"];
-	}
-	return self;
-}
-
 + (NSArray *)mappingInfo
 {
 	return @[

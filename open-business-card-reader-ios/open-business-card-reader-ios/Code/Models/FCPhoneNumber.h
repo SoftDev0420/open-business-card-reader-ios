@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "FCObject.h"
 
-@interface FCPhoneNumber : FCObject <NSCoding>
+@interface FCPhoneNumber : FCObject
 
 @property(nonatomic) NSString *type;
 @property(nonatomic) NSString *value;

@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "FCObject.h"
 
-@interface FCPhoto : FCObject <NSCoding>
+@interface FCPhoto : FCObject
 
 @property(nonatomic) BOOL primary;
 @property(nonatomic) NSString *type;

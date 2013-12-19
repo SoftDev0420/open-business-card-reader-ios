@@ -21,27 +21,6 @@
 
 @implementation FCAddress
 
-- (void)encodeWithCoder:(NSCoder *)encoder {
-	[encoder encodeObject:self.country forKey:@"country"];
-	[encoder encodeObject:self.locality forKey:@"locality"];
-	[encoder encodeObject:self.postalCode forKey:@"postalCode"];
-	[encoder encodeObject:self.region forKey:@"region"];
-	[encoder encodeObject:self.streetAddress forKey:@"streetAddress"];
-	[encoder encodeObject:self.type forKey:@"type"];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-	if ((self = [super init])) {
-		self.country = [decoder decodeObjectForKey:@"country"];
-		self.locality = [decoder decodeObjectForKey:@"locality"];
-		self.postalCode = [decoder decodeObjectForKey:@"postalCode"];
-		self.region = [decoder decodeObjectForKey:@"region"];
-		self.streetAddress = [decoder decodeObjectForKey:@"streetAddress"];
-		self.type = [decoder decodeObjectForKey:@"type"];
-	}
-	return self;
-}
-
 + (NSArray *)mappingInfo
 {
 	return @[

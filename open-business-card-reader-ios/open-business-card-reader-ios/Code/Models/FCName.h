@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "FCObject.h"
 
-@interface FCName : FCObject <NSCoding>
+@interface FCName : FCObject
 
 @property(nonatomic) NSString *familyName;
 @property(nonatomic) NSString *givenName;

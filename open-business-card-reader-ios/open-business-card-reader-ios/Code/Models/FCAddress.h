@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "FCObject.h"
 
-@interface FCAddress : FCObject <NSCoding>
+@interface FCAddress : FCObject
 
 @property(nonatomic) NSString *country;
 @property(nonatomic) NSString *locality;

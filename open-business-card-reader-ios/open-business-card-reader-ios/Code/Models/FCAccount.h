@@ -20,7 +20,7 @@
 #import <Foundation/Foundation.h>
 #import "FCObject.h"
 
-@interface FCAccount : FCObject <NSCoding>
+@interface FCAccount : FCObject
 
 @property(nonatomic) NSString *domain;
 @property(nonatomic) NSString *urlString;

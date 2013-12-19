@@ -16,10 +16,10 @@
 	limitations under the License.
  */
 
+
 #import <Foundation/Foundation.h>
 
-
-@interface FCObject : NSObject
+@interface FCObject : NSObject <NSCoding>
 + (instancetype)objectFromJSON:(NSDictionary *)json;
 
 - (NSDictionary *)JSONRepresentation;
@@ -45,5 +45,4 @@
 - (instancetype)class:(Class)class;
 
 - (instancetype)collectionClass:(Class)class;
-
 @end

@@ -22,7 +22,7 @@
 
 @class FCName;
 
-@interface FCContact : FCObject <NSCoding>
+@interface FCContact : FCObject
 
 @property(nonatomic) NSArray *accounts;
 @property(nonatomic) NSArray *addresses;

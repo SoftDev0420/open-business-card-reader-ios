@@ -21,19 +21,6 @@
 
 @implementation FCPhoneNumber
 
-- (void)encodeWithCoder:(NSCoder *)encoder {
-	[encoder encodeObject:self.type forKey:@"type"];
-	[encoder encodeObject:self.value forKey:@"value"];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-	if ((self = [super init])) {
-		self.type = [decoder decodeObjectForKey:@"type"];
-		self.value = [decoder decodeObjectForKey:@"value"];
-	}
-	return self;
-}
-
 + (NSArray *)mappingInfo
 {
 	return @[

@@ -21,21 +21,6 @@
 
 @implementation FCName
 
-- (void)encodeWithCoder:(NSCoder *)encoder {
-	[encoder encodeObject:self.familyName forKey:@"familyName"];
-	[encoder encodeObject:self.givenName forKey:@"givenName"];
-	[encoder encodeObject:self.middleName forKey:@"middleName"];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-	if ((self = [super init])) {
-		self.familyName = [decoder decodeObjectForKey:@"familyName"];
-		self.givenName = [decoder decodeObjectForKey:@"givenName"];
-		self.middleName = [decoder decodeObjectForKey:@"middleName"];
-	}
-	return self;
-}
-
 + (NSArray *)mappingInfo
 {
 	return @[

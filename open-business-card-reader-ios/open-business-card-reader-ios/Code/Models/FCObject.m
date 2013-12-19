@@ -178,4 +178,25 @@ typedef NS_ENUM(NSInteger, FCMappingType) {
 	@throw [NSException exceptionWithName:@"Abstract method not implemented" reason:reason userInfo:nil];
 }
 
+
+#pragma mark - NSCoding
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+	for (FCMappingInfo *mapping in [[self class] mappingInfo]) {
+		[coder encodeObject:[self valueForKeyPath:mapping.keyPath] forKey:mapping.keyPath];
+	}
+}
+
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+	if ((self = [super init])) {
+		for (FCMappingInfo *mapping in [[self class] mappingInfo]) {
+			[self setValue:[coder decodeObjectForKey:mapping.keyPath] forKeyPath:mapping.keyPath];
+		}
+	}
+	return self;
+}
+
 @end

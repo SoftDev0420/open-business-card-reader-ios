@@ -21,30 +21,13 @@
 
 @implementation FCAccount
 
-- (void)encodeWithCoder:(NSCoder *)encoder {
-	[encoder encodeObject:self.domain forKey:@"domain"];
-	[encoder encodeObject:self.urlString forKey:@"urlString"];
-	[encoder encodeObject:self.username forKey:@"username"];
-	[encoder encodeObject:self.userId forKey:@"userid"];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder {
-	if ((self = [super init])) {
-		self.domain = [decoder decodeObjectForKey:@"domain"];
-		self.urlString = [decoder decodeObjectForKey:@"urlString"];
-		self.username = [decoder decodeObjectForKey:@"username"];
-		self.userId = [decoder decodeObjectForKey:@"userid"];
-	}
-	return self;
-}
-
 + (NSArray *)mappingInfo
 {
 	return @[
 			[FCMappingInfo mappingWithKey:@"domain"],
 			[FCMappingInfo mappingWithKey:@"urlString"],
 			[FCMappingInfo mappingWithKey:@"username"],
-			[FCMappingInfo mappingWithKey:@"userid"]
+			[FCMappingInfo mappingWithKeyPath:@"userId" jsonKey:@"userid"]
 	];
 }
 

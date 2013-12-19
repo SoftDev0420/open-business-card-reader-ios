@@ -79,11 +79,11 @@ static FCAPI *api;
 	(parameters) ? [NSMutableDictionary dictionaryWithDictionary:parameters] : [NSMutableDictionary new];
 	
 	[mutableParameters setObject:@"medium" forKey:@"verified"];
-	[mutableParameters setObject:@"casing" forKey:@"titlecase"];
+	[mutableParameters setObject:@"titlecase" forKey:@"casing"];
 	
 	[api uploadCard:UIImageJPEGRepresentation(frontImage, 0.5)
 			andBack:(backImage) ? UIImageJPEGRepresentation(backImage, 0.5) : nil
-	 withParameters:parameters
+	 withParameters:mutableParameters
 	  andWebhookUrl:kSFDCServiceWebHook
 			success:^(FCResponse *response) {
 				success(response);

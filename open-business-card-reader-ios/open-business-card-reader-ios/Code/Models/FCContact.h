@@ -34,10 +34,4 @@
 @property(nonatomic) NSArray *photos;
 @property(nonatomic) NSArray *urls;
 
-//+ (FCContact *)instanceFromDictionary:(NSDictionary *)aDictionary;
-//
-//- (void)setAttributesFromDictionary:(NSDictionary *)aDictionary;
-//
-//- (NSDictionary *)dictionaryRepresentation;
-
 @end

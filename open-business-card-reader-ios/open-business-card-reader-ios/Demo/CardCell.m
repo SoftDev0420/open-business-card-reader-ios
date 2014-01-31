@@ -91,11 +91,11 @@
 	NSMutableArray *components = [NSMutableArray new];
 	NSMutableArray *processedName = [NSMutableArray new];
 	NSString *name;
-	if ([contact valueForKeyPath:@"name.givenName"])
+	if (c.name.givenName)
 		[processedName addObject:c.name.givenName];
-	if ([contact valueForKeyPath:@"name.middleName"])
+	if (c.name.middleName)
 		[processedName addObject:c.name.middleName];
-	if ([contact valueForKeyPath:@"name.familyName"])
+	if (c.name.familyName)
 		[processedName addObject:c.name.familyName];
 
 	name = [processedName componentsJoinedByString:@" "];

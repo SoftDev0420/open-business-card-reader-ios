@@ -9,7 +9,7 @@ Interested in adding Card Reading functionality into a new or existing iOS appli
 Open Business Card Reader for iOS is an open source example implementation of FullContact Card Reader.  It's built on top of our [fullcontact-objc](https://github.com/fullcontact/fullcontact-objc) library and shows how to caputure business card images, send them to the FullContact [Card Reader API](http://www.fullcontact.com/developer/card-reader-api/), and receive transcribed Contact information back to your device.
 
 ## Getting Started
-Once you clone the Open Business Card Reader Source locally, you'll need to get a FullContact API key to get up and running.
+Once you clone the Open Business Card Reader Source locally, you'll need to get a FullContact API key to get up and running.  You'll also need to ensure you are using XCode 5.
 ###Obtain a FullContact API Key
 A FullContact API key can be obtained on our [Developer Portal](https://www.fullcontact.com/developer/pricing).
 ###Insert your FullContact API Key
@@ -23,6 +23,13 @@ For example:
 ```
 NSString *const kAPIKey = @"MYAPIKEY";  
 ```
+###Update Submodule Dependencies
+Update the codebase and pull in the submodule dependencies by issuing the following command in the folder you have cloned the repository into:
+
+```
+git submodule update --init --recursive
+```
+
 ## Using the Application
 Depending on your application architecture and requirements there are different methods for integrating Open Business Card Reader into your application.
 

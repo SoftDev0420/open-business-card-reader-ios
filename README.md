@@ -23,6 +23,19 @@ For example:
 ```
 NSString *const kAPIKey = @"MYAPIKEY";  
 ```
+
+###Set your webhook url (in `FCCardReaderHelper.m`)
+You can see the we have the default set to `http://requestb.in`. Create a request bin for testing if you need to.
+
+```
+#define kMyServiceWebHook @"http://requestb.in"   //TODO: Enter your Webhook Url here
+```
+
+	* This webhook is where finished data is sent.
+  	* When the webhook sends, handle it appropriately. See [CardReader API Docs](https://www.fullcontact.com/developer/docs/card-reader/) for more info about webhooks.
+  	* The simplest thing to do with the webhook is trigger a push notification to the device.
+    	* When this notification is received, the phone can poll the updated contact data.
+
 ###Update Submodule Dependencies
 Update the codebase and pull in the submodule dependencies by issuing the following command in the folder you have cloned the repository into:
 

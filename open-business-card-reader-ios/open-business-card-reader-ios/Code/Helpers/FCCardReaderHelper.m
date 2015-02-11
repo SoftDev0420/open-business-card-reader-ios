@@ -33,7 +33,7 @@ NSString *const kCardStatusCallbackFailedNotProcessable  = @"CALLBACK_FAILED_NOT
 NSString *const kCardStatusCallbackFailed = @"CALLBACK_FAILED";
 
 #define kCardReaderAPIUrl @"https://api.fullcontact.com/v2/cardShark/%@"
-#define kSFDCServiceWebHook @"https://sfdc-api.fullcontact.com/sfdc-api/cardReader/webhook"
+#define kMyServiceWebHook @"http://requestb.in" /* Replace Me with a valid webhook like a request bin (check out http://requestb.in) */
 
 static NSUInteger const BatchSize = 20;
 
@@ -84,7 +84,7 @@ static FCAPI *api;
 	[api uploadCard:UIImageJPEGRepresentation(frontImage, 0.5)
 			andBack:(backImage) ? UIImageJPEGRepresentation(backImage, 0.5) : nil
 	 withParameters:mutableParameters
-	  andWebhookUrl:kSFDCServiceWebHook
+	  andWebhookUrl:kMyServiceWebHook
 			success:^(FCResponse *response) {
 				success(response);
 			} failure:^(FCResponse *response, NSError *error) {

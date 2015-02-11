@@ -33,7 +33,8 @@ NSString *const kCardStatusCallbackFailedNotProcessable  = @"CALLBACK_FAILED_NOT
 NSString *const kCardStatusCallbackFailed = @"CALLBACK_FAILED";
 
 #define kCardReaderAPIUrl @"https://api.fullcontact.com/v2/cardShark/%@"
-#define kMyServiceWebHook @"http://requestb.in" /* Replace Me with a valid webhook like a request bin (check out http://requestb.in) */
+/* Replace the following with a valid webhook like a request bin (check out http://requestb.in) */
+#define kMyServiceWebHook @"http://requestb.in" 
 
 static NSUInteger const BatchSize = 20;
 
